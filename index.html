@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Personal portfolio website</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .fa-linkedin{
+            font-size: 35px;
+        }
+        .fa-github{
+            font-size: 35px;
+        }
+        
+    </style>
+    <style>
+        .btn.btn2{
+            font-size:1rem ;
+            border: none;
+            outline: 10px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background-color: red;
+            color: white;
+        }
+    </style>
+   
+</head>    
+<body>
+<div id="header">
+      <div class="container">
+         <nav>
+            <img src="images/logo.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+         </nav>
+         <div class="header_text">
+            <p>ECE-Undergraduate</p>
+            <h1>Hi, I'm <span>Shashank Gurram</span><br> From Hyderabad.</h1>
+
+         </div>
+      </div>
+    
+</div>
+<!-------------------about---->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">  
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Welcome to my corner of the web! I'm Shashank Gurram , currently navigating the exciting realms of Electronics and Communication Engineering at CMR Institute Of Technology. As a passionate learner in the field, I thrive on exploring the intersections of technology and innovation. Alongside my studies, I have honed my skills in web technologies like HTML, CSS, and JavaScript, enabling me to create engaging and functional websites
+                </p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links active-link" onclick="opentab('language')">Languages</p>
+                    <p class="tab-links active-link" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Data Structures and Algorithms</span><br>Profecient</li>
+                        <li><span>Java Programming</span><br>Intermediate</li>
+                        <li><span>HTML,CSS,Java script</span><br>Intermediate</li>
+                        <li><span>Python</span><br>Intermediate</li>
+                        
+                    </ul>
+                </div>
+                <div class="tab-contents" id="language">
+                    <ul>
+                        <li><span>ENGLISH</span><br>Proficient</li>
+                        <li><span>HINDI</span><br>Intermediate</li>
+                        <li><span>TELUGU</span><br>Native</li>
+                    </ul>
+                </div>
+
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2021-2025</span><br>CMR Institute of Technology,Hyderabad with 8.45 CGPA</li>
+                        <li><span>2019-2021</span><br>Narayana Junior College,Hyderabad with 878 marks</li>
+                        <li><span>2009-2019</span><br>Kallam Anji Reddy Vidyalaya,Hyderabad with 9.5 GPA</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ----------contact------ -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+               <h1 class="sub-title">Contact Me</h1>
+               <p><i class="fa-solid fa-paper-plane"></i> shashankgurram03@gmail.com</p>
+               <p><i class="fa-solid fa-phone"></i> 9346759994</p>
+               <div class="social-icons">
+                   <a href="https://www.linkedin.com/in/shashank-gurram-432951290"><i class="fab fa-linkedin"></i></a>
+                   <a href="https://github.com/Shashankgurram"><i class="fab fa-github"></i></a>
+               </div>
+               <a href="images/resume.pdf" download class="btn btn2"><i class="fa-regular fa-file"></i> Download CV</a>
+            </div>
+            <div class="contact-right">
+            <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="text" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                <button type="submit" class="btn btn2">Submit</button>
+            </form>
+            <span id="msg"></span>
+        </div>
+    </div>
+    <div class="copyright">
+         <p>Copyright <i class="fa-regular fa-copyright"></i> Shashank.G </p>
+    </div>
+</div>
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwqrpUwOuTl2yhZSJ2qThkT0ciulqxl7dZuPr3y6K9tTj6usOVue47Eehi3kU4jomY/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        })   
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
